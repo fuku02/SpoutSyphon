@@ -13,16 +13,12 @@ using UnityEngine.UI;
 public class SpoutSyphonSender : MonoBehaviour
 {
     public string senderName;
-    // public Vector2 resolution = new Vector2(1920, 1080);
     public bool alphaSupport;
     private SpoutSender spoutSender;
     private SyphonServer syphonSender;
-    // private RenderTexture renderTextrue;
 
     private void Awake()
     {
-        // renderTextrue = new RenderTexture((int) resolution.x, (int) resolution.y, 16, RenderTextureFormat.Default);
-        // renderTextrue.name = "rt_" + senderName;
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         // Spout
@@ -30,7 +26,6 @@ public class SpoutSyphonSender : MonoBehaviour
         gameObject.name = Application.productName + "/" + senderName;
         CheckSpoutSender();
         spoutSender = gameObject.AddComponent<SpoutSender>();
-        spoutSender.enabled = false;
         spoutSender.alphaSupport = alphaSupport;
 #endif
 
@@ -39,7 +34,6 @@ public class SpoutSyphonSender : MonoBehaviour
         // senderNameは、自動で「appName / senderName」になる
         gameObject.name = senderName;
         syphonSender = gameObject.AddComponent<SyphonServer>();
-        syphonSender.enabled = false;
         syphonSender.alphaSupport = alphaSupport;
 #endif
     }
