@@ -36,11 +36,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Klak\Syphon\Runtime\SyphonClient.cs" />
      <Compile Include="Assets\Klak\Syphon\Internal\SyphonCommon.cs" />
      <Compile Include="Assets\Scripts\SetFrameRate.cs" />
      <Compile Include="Assets\Scripts\DispResolution.cs" />
-     <Compile Include="Assets\Klak\Syphon\Runtime\SyphonServer.cs" />
      <Compile Include="Assets\Scripts\SetResolution.cs" />
      <Compile Include="Assets\Scripts\Circular.cs" />
      <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSender.cs" />

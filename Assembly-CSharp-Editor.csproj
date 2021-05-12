@@ -37,9 +37,6 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Syphon\Editor\SyphonReveiverEditor.cs" />
-     <Compile Include="Assets\Klak\Syphon\Editor\SyphonServerListWindow.cs" />
-     <Compile Include="Assets\Klak\Syphon\Editor\SyphonServerEditor.cs" />
-     <Compile Include="Assets\Klak\Syphon\Editor\SyphonClientEditor.cs" />
      <Compile Include="Assets\Scripts\Syphon\Editor\SyphonSenderEditor.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
