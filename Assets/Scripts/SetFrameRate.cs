@@ -1,55 +1,39 @@
-/************************************************************
-■参考
-	Github
-		https://github.com/SJ-magic-study-unity/study__UnityFixFramerate
-		
-	UnityでFPSを設定する方法
-		http://unityleaning.blog.fc2.com/blog-entry-2.html
-************************************************************/
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-/************************************************************
-************************************************************/
 public class SetFrameRate : MonoBehaviour
 {
 
-    private string label = "";
-    KeyCode Key_Disp = KeyCode.R;
-    bool b_Disp = false;
-
-    [SerializeField] int FrameRate = 60;
+    [SerializeField] int targetFrameRate = 60;
+    [SerializeField] float currentFps;
+    [SerializeField] bool isStats = false;
+    private GUIStyle style;
+    private GUIStyleState styleState;
 
     void Awake()
     {
-        //QualitySettings.vSyncCount = 1; // Don't Sync
-        Application.targetFrameRate = FrameRate;
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = targetFrameRate;
+
+        style = new GUIStyle();
+        style.fontSize = 30;
+        style.fontStyle = FontStyle.Bold;
+
+        styleState = new GUIStyleState();
+        styleState.textColor = Color.white;
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(Key_Disp)) b_Disp = !b_Disp;
-
-        float fps = 1.0f / Time.deltaTime;
-        label = string.Format("{0:000.0}", (int)(fps + 0.5f));
+        if (Input.GetKeyDown(KeyCode.D)) isStats = !isStats;
+        currentFps = 1.0f / Time.deltaTime;
     }
 
-    /****************************************
-	****************************************/
     void OnGUI()
     {
-        GUI.color = Color.white;
-
-        /********************
-		********************/
-        if (b_Disp) GUI.Label(new Rect(15, 100, 500, 50), label);
+        if (!isStats) return;
+        var label = string.Format("fps:{0:00.0}", (currentFps + 0.5f));
+        style.normal = styleState;
+        GUI.Label(new Rect(10, 10, 1000, 1000), label, style);
     }
 }

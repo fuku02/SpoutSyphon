@@ -13,9 +13,16 @@ namespace Klak.Spout
 
         [SerializeField] RenderTexture _sourceTexture;
 
-        public RenderTexture sourceTexture {
-            get { return _sourceTexture; }
-            set { _sourceTexture = value; }
+        public RenderTexture sourceTexture
+        {
+            get
+            {
+                return _sourceTexture;
+            }
+            set
+            {
+                _sourceTexture = value;
+            }
         }
 
         #endregion
@@ -24,9 +31,16 @@ namespace Klak.Spout
 
         [SerializeField] bool _alphaSupport;
 
-        public bool alphaSupport {
-            get { return _alphaSupport; }
-            set { _alphaSupport = value; }
+        public bool alphaSupport
+        {
+            get
+            {
+                return _alphaSupport;
+            }
+            set
+            {
+                _alphaSupport = value;
+            }
         }
 
         #endregion
@@ -78,8 +92,7 @@ namespace Klak.Spout
                 // render buffer functionality), so we temporarily allocate a
                 // render texture as a middleman, blit the source to it, then
                 // copy it to the shared texture using the CopyTexture API.
-                var tempRT = RenderTexture.GetTemporary
-                    (_sharedTexture.width, _sharedTexture.height);
+                var tempRT = RenderTexture.GetTemporary(_sharedTexture.width, _sharedTexture.height);
                 Graphics.Blit(source, tempRT, _blitMaterial, 0);
                 Graphics.CopyTexture(tempRT, _sharedTexture);
                 RenderTexture.ReleaseTemporary(tempRT);

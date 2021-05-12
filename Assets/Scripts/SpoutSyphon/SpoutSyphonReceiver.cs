@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Klak.Spout;
 using Klak.Syphon;
@@ -20,7 +20,7 @@ public class SpoutSyphonReceiver : MonoBehaviour
 
     private void Awake()
     {
-        renterTextrue = new RenderTexture((int)resolution.x, (int)resolution.y, 16, RenderTextureFormat.ARGB32);
+        renterTextrue = new RenderTexture((int) resolution.x, (int) resolution.y, 16, RenderTextureFormat.ARGB32);
         renterTextrue.name = "rt_" + senderName;
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
@@ -40,14 +40,14 @@ public class SpoutSyphonReceiver : MonoBehaviour
         if (!autoConnect) return;
         if (spoutReceiver != null)
         {
-            if (spoutReceiver.sourceName != senderName)
+            if (spoutReceiver.sourceName == null)
             {
                 FindSpoutSender();
             }
         }
         if (syphonReceiver != null)
         {
-            if (syphonReceiver.serverName != senderName)
+            if (syphonReceiver.serverName == null)
             {
                 FindSyphonSender();
             }
@@ -56,7 +56,7 @@ public class SpoutSyphonReceiver : MonoBehaviour
 
     void FindSpoutSender()
     {
-        var count = PluginEntry.ScanSharedObjects();
+        var count = SpoutPluginEntry.ScanSharedObjects();
         if (count == 0)
             print("No sender found.");
         else
@@ -64,19 +64,21 @@ public class SpoutSyphonReceiver : MonoBehaviour
 
         for (var i = 0; i < count; i++)
         {
-            var _senderName = PluginEntry.GetSharedObjectNameString(i);
-            print(String.Format("- {0}", _senderName));
+            var _name = SpoutPluginEntry.GetSharedObjectNameString(i);
+            var _nameList = _name.Split('/');
+            var _senderName = _nameList[_nameList.Length - 1].Trim();
+            print(String.Format("- {0}", _name));
             if (_senderName == senderName)
             {
-                spoutReceiver.sourceName = _senderName;
+                spoutReceiver.sourceName = _name;
             }
         }
     }
 
     void FindSyphonSender()
     {
-        var list = Plugin_CreateServerList();
-        var count = Plugin_GetServerListCount(list);
+        var list = SyphonPluginEntry.Plugin_CreateServerList();
+        var count = SyphonPluginEntry.Plugin_GetServerListCount(list);
 
         if (count == 0)
             print("No sender found.");
@@ -85,8 +87,8 @@ public class SpoutSyphonReceiver : MonoBehaviour
 
         for (var i = 0; i < count; i++)
         {
-            var pSenderName = Plugin_GetNameFromServerList(list, i);
-            var pAppName = Plugin_GetAppNameFromServerList(list, i);
+            var pSenderName = SyphonPluginEntry.Plugin_GetNameFromServerList(list, i);
+            var pAppName = SyphonPluginEntry.Plugin_GetAppNameFromServerList(list, i);
             var _senderName = (pSenderName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pSenderName) : "(no sender name)";
             var _appName = (pAppName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pAppName) : "(no app name)";
             print(String.Format("- {0} / {1}", _appName, _senderName));
@@ -98,22 +100,4 @@ public class SpoutSyphonReceiver : MonoBehaviour
         }
     }
 
-    #region Native plugin entry points for Syphon
-
-    [DllImport("KlakSyphon")]
-    static extern IntPtr Plugin_CreateServerList();
-
-    [DllImport("KlakSyphon")]
-    static extern void Plugin_DestroyServerList(IntPtr list);
-
-    [DllImport("KlakSyphon")]
-    static extern int Plugin_GetServerListCount(IntPtr list);
-
-    [DllImport("KlakSyphon")]
-    static extern IntPtr Plugin_GetNameFromServerList(IntPtr list, int index);
-
-    [DllImport("KlakSyphon")]
-    static extern IntPtr Plugin_GetAppNameFromServerList(IntPtr list, int index);
-
-    #endregion
 }
