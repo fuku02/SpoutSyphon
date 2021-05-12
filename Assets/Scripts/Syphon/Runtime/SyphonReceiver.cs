@@ -121,7 +121,7 @@ public class SyphonReceiver : MonoBehaviour
 
     void Update()
     {
-        if (_senderName == "") return;
+        // if (_senderName == "") return;
         // If we have no connection yet, keep trying to connect to the server.
         if (_clientInstance == IntPtr.Zero)
         {

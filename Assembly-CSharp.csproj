@@ -37,14 +37,15 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Klak\Syphon\Internal\SyphonCommon.cs" />
+     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSenderFinder.cs" />
      <Compile Include="Assets\Scripts\SetFrameRate.cs" />
      <Compile Include="Assets\Scripts\DispResolution.cs" />
      <Compile Include="Assets\Scripts\SetResolution.cs" />
      <Compile Include="Assets\Scripts\Circular.cs" />
      <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSender.cs" />
      <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonReceiver.cs" />
-     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSenderFinder.cs" />
      <None Include="Assets\Klak\Syphon\Internal\Resources\Blit.shader" />
+     <None Include="Assets\Klak\Spout\Resources\Blit.shader" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -649,6 +650,14 @@
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{77c513fb-7514-82a1-8844-33d80cad211d}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Klak.Spout.csproj">
+      <Project>{2bb80897-4309-858c-bd83-d9ddf7ec5d39}</Project>
+      <Name>Klak.Spout</Name>
+    </ProjectReference>
+    <ProjectReference Include="Klak.Spout.Editor.csproj">
+      <Project>{af5e732c-0387-7cad-f1a3-0d7de41f6e44}</Project>
+      <Name>Klak.Spout.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

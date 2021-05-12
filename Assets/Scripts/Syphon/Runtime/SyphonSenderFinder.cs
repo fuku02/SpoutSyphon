@@ -17,7 +17,7 @@ public class SyphonSenderFinder : MonoBehaviour
     private void Awake()
     {
         renterTextrue = new RenderTexture((int)resolution.x, (int)resolution.y, 16, RenderTextureFormat.ARGB32);
-        renterTextrue.name = "receiver_rt";
+        renterTextrue.name = "rt_" + senderName;
         syphonReceiver.targetTexture = renterTextrue;
         rawImage.texture = renterTextrue;
     }
