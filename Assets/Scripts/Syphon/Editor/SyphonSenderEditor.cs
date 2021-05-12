@@ -1,14 +1,16 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(SyphonSender))]
 public class SyphonSenderEditor : Editor
 {
+    SerializedProperty _senderName;
     SerializedProperty _sourceTexture;
     SerializedProperty _alphaSupport;
 
     void OnEnable()
     {
+        _senderName = serializedObject.FindProperty("_senderName");
         _sourceTexture = serializedObject.FindProperty("_sourceTexture");
         _alphaSupport = serializedObject.FindProperty("_alphaSupport");
     }
@@ -16,10 +18,10 @@ public class SyphonSenderEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+        EditorGUILayout.DelayedTextField(_senderName);
 
         var server = (SyphonSender)target;
         var camera = server.GetComponent<Camera>();
-
         if (camera != null)
         {
             EditorGUILayout.HelpBox(

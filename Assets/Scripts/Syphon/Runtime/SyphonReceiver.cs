@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
+using Klak.Syphon;
 using UnityEngine;
 using UnityEngine.Rendering;
-using System.Diagnostics;
-using Klak.Syphon;
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 public class SyphonReceiver : MonoBehaviour
 {
     #region Source settings
@@ -23,15 +23,15 @@ public class SyphonReceiver : MonoBehaviour
         }
     }
 
-    [SerializeField] string _serverName;
+    [SerializeField] string _senderName;
 
-    public string serverName
+    public string senderName
     {
-        get { return _serverName; }
+        get { return _senderName; }
         set
         {
-            if (_serverName == value) return;
-            _serverName = value;
+            if (_senderName == value) return;
+            _senderName = value;
             OnDisable(); // Force reconnection
         }
     }
@@ -47,7 +47,6 @@ public class SyphonReceiver : MonoBehaviour
         get { return _targetTexture; }
         set { _targetTexture = value; }
     }
-
     [SerializeField] Renderer _targetRenderer;
 
     public Renderer targetRenderer
@@ -122,12 +121,11 @@ public class SyphonReceiver : MonoBehaviour
 
     void Update()
     {
+        if (_senderName == "") return;
         // If we have no connection yet, keep trying to connect to the server.
         if (_clientInstance == IntPtr.Zero)
         {
-            FindServer();
-            if (_serverName == "") return;
-            _clientInstance = Plugin_CreateClient(_serverName, _appName);
+            _clientInstance = Plugin_CreateClient(_senderName, _appName);
         }
 
         // Break and return if there is no connection at this point.
@@ -195,33 +193,6 @@ public class SyphonReceiver : MonoBehaviour
         }
     }
 
-    void FindServer()
-    {
-        var list = Plugin_CreateServerList();
-        var count = Plugin_GetServerListCount(list);
-
-        if (count == 0)
-            print("No server found.");
-        else
-            print(count + " server(s) found.");
-
-        for (var i = 0; i < count; i++)
-        {
-            var pName = Plugin_GetNameFromServerList(list, i);
-            var pAppName = Plugin_GetAppNameFromServerList(list, i);
-
-            var name = (pName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pName) : "(no name)";
-            var appName = (pAppName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pAppName) : "(no app name)";
-
-            print(String.Format("- {0} / {1}", appName, name));
-            if (name == "out1")
-            {
-                _serverName = name;
-                _appName = appName;
-            }
-        }
-    }
-
     #endregion
 
     #region Native plugin entry points
@@ -246,22 +217,6 @@ public class SyphonReceiver : MonoBehaviour
 
     [DllImport("KlakSyphon")]
     static extern void Plugin_UpdateClient(IntPtr instance);
-
-
-    [DllImport("KlakSyphon")]
-    static extern IntPtr Plugin_CreateServerList();
-
-    [DllImport("KlakSyphon")]
-    static extern void Plugin_DestroyServerList(IntPtr list);
-
-    [DllImport("KlakSyphon")]
-    static extern int Plugin_GetServerListCount(IntPtr list);
-
-    [DllImport("KlakSyphon")]
-    static extern IntPtr Plugin_GetNameFromServerList(IntPtr list, int index);
-
-    [DllImport("KlakSyphon")]
-    static extern IntPtr Plugin_GetAppNameFromServerList(IntPtr list, int index);
 
     #endregion
 

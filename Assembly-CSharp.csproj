@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\Circular.cs" />
      <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSender.cs" />
      <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonReceiver.cs" />
+     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSenderFinder.cs" />
      <None Include="Assets\Klak\Syphon\Internal\Resources\Blit.shader" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

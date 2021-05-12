@@ -1,11 +1,22 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using UnityEngine;
 using Klak.Syphon;
+using UnityEngine;
 
 [ExecuteInEditMode]
 public class SyphonSender : MonoBehaviour
 {
+
+    #region Sender Name
+    [SerializeField] string _senderName;
+
+    public string senderName
+    {
+        get { return _senderName; }
+        set { _senderName = value; }
+    }
+    #endregion
+
     #region Source texture
 
     [SerializeField] RenderTexture _sourceTexture;
@@ -94,7 +105,7 @@ public class SyphonSender : MonoBehaviour
             var height = _hasCamera ? camera.pixelHeight : _sourceTexture.height;
 
             // Create the server instance.
-            _serverInstance = Plugin_CreateServer(gameObject.name, width, height);
+            _serverInstance = Plugin_CreateServer(senderName, width, height);
 
             // Create the server texture as an external 2D texture.
             _serverTexture = Texture2D.CreateExternalTexture(
