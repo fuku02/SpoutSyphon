@@ -332,7 +332,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -347,14 +346,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef94b6d282a14246ba60a068296e4cf, type: 3}
+  m_Script: {fileID: 11500000, guid: af50fb32159b64fe0b155937b4a0f548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _senderName: out1
-  _sourceTexture: {fileID: 0}
-  _alphaSupport: 0
+  senderName: out1
+  resolution: {x: 1920, y: 1080}
+  alphaSupport: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -412,20 +411,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sourceTexture: {fileID: 0}
-  _alphaSupport: 0
 --- !u!1 &1046366018
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +577,6 @@ GameObject:
   - component: {fileID: 1570433093}
   - component: {fileID: 1570433096}
   - component: {fileID: 1570433095}
-  - component: {fileID: 1570433097}
   - component: {fileID: 1570433094}
   m_Layer: 5
   m_Name: RawImage
@@ -629,14 +613,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1570433092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c9ae003eb16b442eafdd46bb0975c06, type: 3}
+  m_Script: {fileID: 11500000, guid: 24ef78bf473fe4e4ca5482ac65446e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   autoConnect: 1
   senderName: out1
   resolution: {x: 1920, y: 1080}
-  syphonReceiver: {fileID: 1570433097}
-  rawImage: {fileID: 1570433095}
 --- !u!114 &1570433095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,24 +654,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570433092}
   m_CullTransparentMesh: 0
---- !u!114 &1570433097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570433092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1bf7c409a09042dd9ffcb3c902ef879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _appName: 
-  _senderName: 
-  _targetTexture: {fileID: 0}
-  _targetRenderer: {fileID: 0}
-  _targetMaterialProperty: 
-  _nullTexture: {fileID: 0}
 --- !u!1 &1647713405
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class SetResolution : MonoBehaviour
         ULTRA,
     };
 
-    [SerializeField] SyphonSender syphonSender;
+    // [SerializeField] SyphonSender syphonSender;
     readonly Vector2 resolution = new Vector2(1280, 720);
 
     bool b_ResolutionSet = false;
@@ -52,8 +52,8 @@ public class SetResolution : MonoBehaviour
         /********************
 		Coroutineを使って、SetResolutionの完了をjudge.
 		********************/
-        syphonSender.enabled = false;
-        StartCoroutine(_IsSetResolution_OK(resolution));
+        // syphonSender.enabled = false;
+        // StartCoroutine(_IsSetResolution_OK(resolution));
     }
     /******************************
 	******************************/
@@ -73,7 +73,7 @@ public class SetResolution : MonoBehaviour
                 if (b_ResolutionSet)
                 {
                     State = STATE.COMP__SET_RESOLUTION;
-                    syphonSender.enabled = true;
+                    // syphonSender.enabled = true;
                 }
                 break;
 

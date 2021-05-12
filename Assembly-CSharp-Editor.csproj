@@ -36,8 +36,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Syphon\Editor\SyphonReveiverEditor.cs" />
-     <Compile Include="Assets\Scripts\Syphon\Editor\SyphonSenderEditor.cs" />
+     <Compile Include="Assets\Klak\Syphon\Editor\SyphonServerListWindow.cs" />
+     <Compile Include="Assets\Klak\Syphon\Editor\SyphonServerEditor.cs" />
+     <Compile Include="Assets\Klak\Syphon\Editor\SyphonClientEditor.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -640,6 +641,10 @@
       <Project>{90e789ea-8c7c-52c7-9412-5b0b92f5676d}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Klak.Spout.csproj">
+      <Project>{2bb80897-4309-858c-bd83-d9ddf7ec5d39}</Project>
+      <Name>Klak.Spout</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{7d541495-d6b7-78c9-2584-c490387d99f7}</Project>
       <Name>Unity.Timeline.Editor</Name>
@@ -651,6 +656,10 @@
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{2dbbbb51-b8d8-5c6c-36cb-388c533dca03}</Project>
       <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Klak.Spout.Editor.csproj">
+      <Project>{af5e732c-0387-7cad-f1a3-0d7de41f6e44}</Project>
+      <Name>Klak.Spout.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{90736d0f-6519-b9ef-e017-347e50c1bf47}</Project>

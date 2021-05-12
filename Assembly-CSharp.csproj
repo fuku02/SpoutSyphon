@@ -36,14 +36,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Klak\Syphon\Runtime\SyphonClient.cs" />
      <Compile Include="Assets\Klak\Syphon\Internal\SyphonCommon.cs" />
-     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSenderFinder.cs" />
      <Compile Include="Assets\Scripts\SetFrameRate.cs" />
      <Compile Include="Assets\Scripts\DispResolution.cs" />
+     <Compile Include="Assets\Klak\Syphon\Runtime\SyphonServer.cs" />
      <Compile Include="Assets\Scripts\SetResolution.cs" />
      <Compile Include="Assets\Scripts\Circular.cs" />
-     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonSender.cs" />
-     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonReceiver.cs" />
+     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonServerCustom.cs" />
+     <Compile Include="Assets\Scripts\SpoutSyphon\SpoutSyphonSender.cs" />
+     <Compile Include="Assets\Scripts\SpoutSyphon\SpoutSyphonReceiver.cs" />
+     <Compile Include="Assets\Scripts\Spout\Runtime\Internal\PluginEntry.cs" />
+     <Compile Include="Assets\Scripts\Spout\Runtime\Internal\Utility.cs" />
+     <Compile Include="Assets\Scripts\Syphon\Runtime\SyphonClientCustom.cs" />
+     <Compile Include="Assets\Scripts\Spout\Runtime\SpoutSenderCustom.cs" />
+     <Compile Include="Assets\Scripts\Spout\Runtime\SpoutReceiverCustom.cs" />
      <None Include="Assets\Klak\Syphon\Internal\Resources\Blit.shader" />
      <None Include="Assets\Klak\Spout\Resources\Blit.shader" />
     <Reference Include="UnityEngine">
@@ -627,6 +634,10 @@
       <Project>{90e789ea-8c7c-52c7-9412-5b0b92f5676d}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Klak.Spout.csproj">
+      <Project>{2bb80897-4309-858c-bd83-d9ddf7ec5d39}</Project>
+      <Name>Klak.Spout</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{7d541495-d6b7-78c9-2584-c490387d99f7}</Project>
       <Name>Unity.Timeline.Editor</Name>
@@ -639,6 +650,10 @@
       <Project>{2dbbbb51-b8d8-5c6c-36cb-388c533dca03}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
+    <ProjectReference Include="Klak.Spout.Editor.csproj">
+      <Project>{af5e732c-0387-7cad-f1a3-0d7de41f6e44}</Project>
+      <Name>Klak.Spout.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{90736d0f-6519-b9ef-e017-347e50c1bf47}</Project>
       <Name>UnityEditor.UI</Name>
@@ -650,14 +665,6 @@
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{77c513fb-7514-82a1-8844-33d80cad211d}</Project>
       <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Klak.Spout.csproj">
-      <Project>{2bb80897-4309-858c-bd83-d9ddf7ec5d39}</Project>
-      <Name>Klak.Spout</Name>
-    </ProjectReference>
-    <ProjectReference Include="Klak.Spout.Editor.csproj">
-      <Project>{af5e732c-0387-7cad-f1a3-0d7de41f6e44}</Project>
-      <Name>Klak.Spout.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
