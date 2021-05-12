@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConnect: 1
-  senderName: out2
+  senderName: out1
   resolution: {x: 1920, y: 1080}
 --- !u!114 &1570433095
 MonoBehaviour:

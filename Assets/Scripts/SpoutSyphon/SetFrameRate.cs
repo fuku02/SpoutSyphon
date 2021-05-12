@@ -32,7 +32,7 @@ public class SetFrameRate : MonoBehaviour
     void OnGUI()
     {
         if (!isStats) return;
-        var label = string.Format("fps:{0:00.0}", (currentFps + 0.5f));
+        var label = string.Format("fps:{0:00.0}", (currentFps));
         style.normal = styleState;
         GUI.Label(new Rect(10, 10, 1000, 1000), label, style);
     }

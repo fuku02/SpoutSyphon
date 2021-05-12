@@ -20,7 +20,7 @@ public class SpoutSyphonReceiver : MonoBehaviour
 
     private void Awake()
     {
-        renterTextrue = new RenderTexture((int) resolution.x, (int) resolution.y, 16, RenderTextureFormat.ARGB32);
+        renterTextrue = new RenderTexture((int)resolution.x, (int)resolution.y, 16, RenderTextureFormat.ARGB32);
         renterTextrue.name = "rt_" + senderName;
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
@@ -65,7 +65,7 @@ public class SpoutSyphonReceiver : MonoBehaviour
         for (var i = 0; i < count; i++)
         {
             var _name = SpoutPluginEntry.GetSharedObjectNameString(i);
-            var _nameList = _name.Split('/');
+            var _nameList = _name.Split(':');
             var _senderName = _nameList[_nameList.Length - 1].Trim();
             print(String.Format("- {0}", _name));
             if (_senderName == senderName)
@@ -91,7 +91,7 @@ public class SpoutSyphonReceiver : MonoBehaviour
             var pAppName = SyphonPluginEntry.Plugin_GetAppNameFromServerList(list, i);
             var _senderName = (pSenderName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pSenderName) : "(no sender name)";
             var _appName = (pAppName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pAppName) : "(no app name)";
-            print(String.Format("- {0} / {1}", _appName, _senderName));
+            print(String.Format("- {0}:{1}", _appName, _senderName));
             if (_senderName == senderName)
             {
                 syphonReceiver.appName = _appName;

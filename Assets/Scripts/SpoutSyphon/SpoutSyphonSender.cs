@@ -23,7 +23,7 @@ public class SpoutSyphonSender : MonoBehaviour
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         // Spout
         // senderNameを「appName / senderName」に整形
-        gameObject.name = Application.productName + "/" + senderName;
+        gameObject.name = Application.productName + ":" + senderName;
         CheckSpoutSender();
         spoutSender = gameObject.AddComponent<SpoutSender>();
         spoutSender.alphaSupport = alphaSupport;
@@ -33,6 +33,7 @@ public class SpoutSyphonSender : MonoBehaviour
         // Syphon
         // senderNameは、自動で「appName / senderName」になる
         gameObject.name = senderName;
+        CheckSyphonSender();
         syphonSender = gameObject.AddComponent<SyphonServer>();
         syphonSender.alphaSupport = alphaSupport;
 #endif
@@ -47,7 +48,7 @@ public class SpoutSyphonSender : MonoBehaviour
         for (var i = 0; i < count; i++)
         {
             var _senderName = SpoutPluginEntry.GetSharedObjectNameString(i);
-            if (_senderName == Application.productName + "/" + senderName)
+            if (_senderName == Application.productName + ":" + senderName)
             {
                 Debug.LogError(String.Format("- {0} is already being used by other sender. ", _senderName));
             }
@@ -64,10 +65,10 @@ public class SpoutSyphonSender : MonoBehaviour
             var pAppName = SyphonPluginEntry.Plugin_GetAppNameFromServerList(list, i);
             var _senderName = (pSenderName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pSenderName) : "(no sender name)";
             var _appName = (pAppName != IntPtr.Zero) ? Marshal.PtrToStringAnsi(pAppName) : "(no app name)";
-
-            if (_senderName == senderName && _appName == (Application.platform == RuntimePlatform.OSXEditor? "unity": Application.productName))
+            print(String.Format("- {0}:{1}", _appName, _senderName));
+            if (_senderName == senderName && _appName == (Application.platform == RuntimePlatform.OSXEditor ? "Unity" : Application.productName))
             {
-                Debug.LogError(String.Format("- {0}/{1} is already being used by other sender. ", _appName, _senderName));
+                Debug.LogError(String.Format("- {0}:{1} is already being used by other sender. ", _appName, _senderName));
             }
         }
     }
