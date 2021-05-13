@@ -1,10 +1,14 @@
 # SpoutSyphon
 
+### UnityEditor + UnityApp + TouchDesigner on Mac<br>
 [![UnitySpoutSyphon_Mac](https://img.youtube.com/vi/bNbexI9FOLA/0.jpg)](https://www.youtube.com/watch?v=bNbexI9FOLA)
+<br>
+### UnityEditor + UnityApp + TouchDesigner on Win<br>
 [![UnitySpoutSyphon_Win](https://img.youtube.com/vi/42qos55oARk/0.jpg)](https://www.youtube.com/watch?v=42qos55oARk)
 
 KlakSpout+KlakSyphonを組み合わせてWin/Mac両方で使えるようにしたUnityパッケージです。
 起動時にプラットフォームを判定して、KlakSpout と KlakSyphon を切り替えます。
+KlakSpout と KlakSyphon の良いとこ取りをして、プラットフォームを気にせず使えるようになっています。
 
 # Features
 ## Sender
@@ -28,11 +32,25 @@ KlakSpout+KlakSyphonを組み合わせてWin/Mac両方で使えるようにし�
 KlakSpout.unitypackage と KlakSyphon.unitypackageをダウンロードし、Importしてください。<br>
 KlakSpoutは scoped registry にも対応していますが、安定バージョンで固定するために、packageからのImportをお勧めします。
 
-# unity : package
+### unity : package
 - KlakSpout
  https://github.com/keijiro/KlakSpout
 - KlakSyphon
  https://github.com/keijiro/KlakSyphon
+
+# Usage
+## Sender の場合
+SpoutSyphonSender を Main Camera にアタッチします。
+解像度を指定するには、SetResolution を 任意のGameObject にアタッチします。(GameObjectならどれでも問題ない)
+
+## Receiver の場合
+SpoutSyphonReceiver をRawImageにアタッチします。
+RawImage用のRenderTextrueは再生時に自動作成されます。
+
+キーボードの Dキー を押すとデバッグモードになります。
+デバッグモードでは、fps が表示され、Receiver の場合は、Sendderセレクターが表示されます。
+
+詳細は後日
 
 # 参考
 - 送信動画の解像度の指定方法の参考にしました<br>
