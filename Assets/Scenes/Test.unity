@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 341557066}
   - component: {fileID: 341557065}
   - component: {fileID: 341557067}
+  - component: {fileID: 341557068}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -216,7 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetFrameRate: 60
   currentFps: 0
-  isStats: 0
 --- !u!4 &341557066
 Transform:
   m_ObjectHideFlags: 0
@@ -243,8 +243,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1446819923c0344a19610dcbd91191cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: {x: 640, y: 360}
-  quality: 5
+  resolution: {x: 1920, y: 1080}
+--- !u!114 &341557068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341557064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb77a296cdfb45d0a28fc181bd67144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +313,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -411,8 +423,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1597235633866892892}
   - {fileID: 3220050713448256294}
+  - {fileID: 1597235633866892892}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -431,7 +443,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -521,7 +533,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1597235633317226592}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -630,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConnect: 1
-  senderName: out1
+  senderName: out2
   resolution: {x: 1920, y: 1080}
 --- !u!224 &3220050713448256294
 RectTransform:
@@ -644,7 +656,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1597235633317226592}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -898,8 +910,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 500
-      minScalar: 100
+      scalar: 1000
+      minScalar: 500
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1015,7 +1027,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 50
-      minScalar: 1
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1476,7 +1488,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 100
+      value: 300
       mode: 0
       spread: 0
       speed:
@@ -1595,7 +1607,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5476,7 +5488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3744576294158575472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 99.3}
+  m_LocalPosition: {x: 0, y: 0, z: 200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

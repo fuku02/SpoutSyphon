@@ -17,7 +17,7 @@ public class SpoutSyphonSender : MonoBehaviour
     private SpoutSender spoutSender;
     private SyphonServer syphonSender;
 
-    private void Awake()
+    private void Start()
     {
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
@@ -38,7 +38,6 @@ public class SpoutSyphonSender : MonoBehaviour
         syphonSender.alphaSupport = alphaSupport;
 #endif
     }
-
     private void Update()
     { }
 
