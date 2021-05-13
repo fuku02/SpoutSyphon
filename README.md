@@ -10,12 +10,12 @@ KlakSpout+KlakSyphonを組み合わせてWin/Mac両方で使えるようにし�
 ## Sender
 - 任意のSenderNameをつけられる
 - SpoutでもSyphon形式のSenderNameに整形（AppName:SenderName）
-- 送信動画の解像度の指定可能
+- 送信動画の解像度が指定可能
 
 ## Receiver
 - AutoConnect機能（任意のSenderNameのSenderと自動接続）
 - Sender一覧 + セレクター機能
-- 受信動画の解像度の指定可能
+- 受信動画の解像度が指定可能
 
 # 環境
 - OS X Catalina(10.15.7)
