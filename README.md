@@ -1,5 +1,8 @@
 # SpoutSyphon
 
+[![UnitySpoutSyphon_Mac](https://img.youtube.com/vi/bNbexI9FOLA/0.jpg)](https://www.youtube.com/watch?v=bNbexI9FOLA)
+[![UnitySpoutSyphon_Win](https://img.youtube.com/vi/42qos55oARk/0.jpg)](https://www.youtube.com/watch?v=42qos55oARk)
+
 KlakSpout+KlakSyphonを組み合わせてWin/Mac両方で使えるようにしたUnityパッケージです。
 起動時にプラットフォームを判定して、KlakSpout と KlakSyphon を切り替えます。
 
