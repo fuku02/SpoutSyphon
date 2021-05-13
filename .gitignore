@@ -25,6 +25,7 @@
 /[Aa]ssets/Plugins/Editor/JetBrains*
 
 /[Aa]ssets/[Kk]lak/
+/[Aa]ssets/[Kk]lak.meta
 
 # Visual Studio cache directory
 .vs/
