@@ -10,23 +10,23 @@ KlakSpout+KlakSyphonを組み合わせてWin/Mac両方で使えるようにし�
 ## Sender
 - 任意のSenderNameをつけられる
 - SpoutでもSyphon形式のSenderNameに整形（AppName:SenderName）
-- 送信動画の解像度の指定
+- 送信動画の解像度の指定可能
 
 ## Receiver
 - AutoConnect機能（任意のSenderNameのSenderと自動接続）
-- Senderセレクター機能
-- 受信動画の解像度の指定
+- Sender一覧 + セレクター機能
+- 受信動画の解像度の指定可能
 
 # 環境
--OS X Catalina(10.15.7)
--Windows 10
--Unity : 2020.3.7f1
--KlakSpout v0.2.4
--KlakSyphon v0.0.3
+- OS X Catalina(10.15.7)
+- Windows 10
+- Unity : 2020.3.7f1
+- KlakSpout v0.2.4
+- KlakSyphon v0.0.3
 
 # Install
-KlakSpout.unitypackage と KlakSyphon.unitypackageをダウンロードし、Importしてください。
-KlakSpoutは scoped registry にも対応しています。
+KlakSpout.unitypackage と KlakSyphon.unitypackageをダウンロードし、Importしてください。<br>
+KlakSpoutは scoped registry にも対応していますが、安定バージョンで固定するために、packageからのImportをお勧めします。
 
 # unity : package
 - KlakSpout
@@ -35,4 +35,5 @@ KlakSpoutは scoped registry にも対応しています。
  https://github.com/keijiro/KlakSyphon
 
 # 参考
-https://github.com/SJ-magic-youtube-VisualProgrammer/6__syphon_unity_to_oF
+- 送信動画の解像度の指定方法の参考にしました<br>
+ https://github.com/SJ-magic-youtube-VisualProgrammer/6__syphon_unity_to_oF
