@@ -23,7 +23,8 @@ public class SpoutSyphonSender : MonoBehaviour
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         // Spout
         // senderNameを「appName / senderName」に整形
-        gameObject.name = Application.productName + ":" + senderName;
+        var appName = (Application.platform == RuntimePlatform.WindowsEditor) ? "Unity" : Application.productName;
+        gameObject.name = appName + ":" + senderName;
         CheckSpoutSender();
         spoutSender = gameObject.AddComponent<SpoutSender>();
         spoutSender.alphaSupport = alphaSupport;
