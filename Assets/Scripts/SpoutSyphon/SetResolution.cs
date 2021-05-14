@@ -8,13 +8,23 @@ using UnityEngine; // need this to declare SyphonServer
 
 public class SetResolution : MonoBehaviour
 {
-    public Vector2 resolution = new Vector2(1280, 720);
-
+    [SerializeField]
+    private Vector2 _resolution = new Vector2(1280, 720);
 
     void Awake()
     {
-        Screen.SetResolution((int)resolution.x, (int)resolution.y, false);
-        StartCoroutine(CheckSetResolution(resolution));
+        Apply();
+    }
+
+    void OnValidate()
+    {
+        Apply();
+    }
+
+    void Apply()
+    {
+        Screen.SetResolution((int)_resolution.x, (int)_resolution.y, false);
+        StartCoroutine(CheckSetResolution(_resolution));
     }
 
     IEnumerator CheckSetResolution(Vector2 targetResolution)
@@ -22,18 +32,18 @@ public class SetResolution : MonoBehaviour
         yield return new WaitUntil(() => Screen.width == (int)targetResolution.x && Screen.height == (int)targetResolution.y);
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-        SpoutSender spoutSender = FindObjectOfType<SpoutSender>();
-        if (spoutSender != null)
+        SpoutSender[] spoutSenderList = FindObjectsOfType<SpoutSender>();
+        foreach (var sender in spoutSenderList)
         {
-            spoutSender.enabled = false;
-            spoutSender.enabled = true;
+            sender.enabled = false;
+            sender.enabled = true;
         }
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-        SyphonClient syphonSender = FindObjectOfType<SyphonClient>();
-        if (syphonSender != null)
+        SyphonClient[] syphonSenderList = FindObjectsOfType<SyphonClient>();
+        foreach (var sender in syphonSenderList)
         {
-            syphonSender.enabled = false;
-            syphonSender.enabled = true;
+            sender.enabled = false;
+            sender.enabled = true;
         }
 #endif
     }

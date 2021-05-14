@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +7,8 @@ using UnityEngine;
 
 public class SetQuality : MonoBehaviour
 {
-    public Quality quality = Quality.VERY_HIGH;
+    [SerializeField]
+    private Quality _quality = Quality.VERY_HIGH;
     public enum Quality
     {
         VERY_LOW,
@@ -17,13 +19,33 @@ public class SetQuality : MonoBehaviour
         ULTRA,
     }
 
+    [SerializeField]
+    private VSync _vSync = VSync.Dont_Sync;
+
+    public enum VSync
+    {
+        Dont_Sync,
+        Every_VBlank,
+        Every_Second_VBlank,
+    }
+
     bool isDebugMode = false;
 
     private void Start()
     {
-        QualitySettings.vSyncCount = 1;
-        QualitySettings.SetQualityLevel((int)quality, true);
+        Apply();
         // CreateComboBox();
+    }
+
+    void OnValidate()
+    {
+        Apply();
+    }
+
+    void Apply()
+    {
+        QualitySettings.vSyncCount = (int)_vSync;
+        QualitySettings.SetQualityLevel((int)_quality, true);
     }
 
     private void Update()

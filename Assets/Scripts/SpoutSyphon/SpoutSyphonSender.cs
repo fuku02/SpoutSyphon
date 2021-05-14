@@ -12,8 +12,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Camera))]
 public class SpoutSyphonSender : MonoBehaviour
 {
-    public string senderName;
-    public bool alphaSupport;
+    [SerializeField]
+    private string senderName;
+    [SerializeField]
+    private bool alphaSupport;
     private SpoutSender spoutSender;
     private SyphonServer syphonSender;
 

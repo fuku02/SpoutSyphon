@@ -215,8 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f431318041549d6afb157a88dac089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFrameRate: 60
-  currentFps: 0
+  _targetFrameRate: 60
 --- !u!4 &341557066
 Transform:
   m_ObjectHideFlags: 0
@@ -243,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1446819923c0344a19610dcbd91191cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: {x: 1920, y: 1080}
+  _resolution: {x: 1280, y: 720}
 --- !u!114 &341557068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb77a296cdfb45d0a28fc181bd67144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quality: 4
+  _quality: 4
+  _vSync: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

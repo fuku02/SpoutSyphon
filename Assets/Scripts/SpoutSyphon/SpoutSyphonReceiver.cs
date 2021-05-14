@@ -12,8 +12,10 @@ using UnityEngine.UI;
 public class SpoutSyphonReceiver : MonoBehaviour
 {
     public bool autoConnect = true;
-    public string senderName;
-    public Vector2 resolution = new Vector2(1920, 1080);
+    [SerializeField]
+    private string senderName;
+    [SerializeField]
+    private Vector2 resolution = new Vector2(1920, 1080);
     private RawImage rawImage;
     private SyphonClient syphonReceiver;
     private SpoutReceiver spoutReceiver;
@@ -172,6 +174,7 @@ public class SpoutSyphonReceiver : MonoBehaviour
 
         if (_comboBox.SelectedItem != previous)
         {
+            autoConnect = false;
             SetReceiverSource(_comboBox.SelectedItem);
         }
     }

@@ -4,15 +4,16 @@ using UnityEngine;
 public class SetFrameRate : MonoBehaviour
 {
 
-    [SerializeField] int targetFrameRate = 60;
-    [SerializeField] float currentFps;
+    [SerializeField]
+    private int _targetFrameRate = 60;
+    private float currentFps;
     private bool isDebugMode = false;
     private GUIStyle style;
     private GUIStyleState styleState;
 
     void Start()
     {
-        Application.targetFrameRate = targetFrameRate;
+        Apply();
 
         style = new GUIStyle();
         style.fontSize = 30;
@@ -20,6 +21,16 @@ public class SetFrameRate : MonoBehaviour
 
         styleState = new GUIStyleState();
         styleState.textColor = Color.white;
+    }
+
+    void OnValidate()
+    {
+        Apply();
+    }
+
+    void Apply()
+    {
+        Application.targetFrameRate = _targetFrameRate;
     }
 
     void Update()
@@ -45,4 +56,5 @@ public class SetFrameRate : MonoBehaviour
         float ratio = Mathf.Max(horizRatio, vertRatio);
         GUI.matrix = Matrix4x4.TRS(new Vector3(0, 0, 0), Quaternion.identity, new Vector3(ratio, ratio, 1));
     }
+
 }
